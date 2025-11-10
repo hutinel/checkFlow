@@ -1,0 +1,22 @@
+<h2>Clientes</h2>
+<a href="{% url 'agregar_cliente' %}" class="btn btn-success">Agregar Cliente</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th><th>Apellido</th><th>RUT</th><th>Empresa</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in clientes %}
+    <tr>
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.rut }}</td>
+      <td>{{ cliente.empresa }}</td>
+      <td>
+        <a href="{% url 'eliminar_cliente' cliente.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
